@@ -11,12 +11,19 @@ import productHistoryRouter from "./router/product.history.router"
 import orderRouter from "./router/order.router"
 import orderItemRouter from "./router/order.item.router";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 const PORT = process.env.PORT || 5001;
 
 const app = express();
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:5173", // frontend manzili
+    credentials: true, // agar cookie ishlatsa
+  })
+);
 
 app.get("/", (req: Request, res: Response) => {
     res.send("Hello bro !");

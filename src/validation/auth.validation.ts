@@ -8,8 +8,8 @@ export const loginSchema = Joi.object({
     "string.min": "Username must be at least 3 characters",
     "string.max": "Username must be at most 30 characters",
   }),
-  password: Joi.string().min(6).required().messages({
+  password: Joi.string().min(3).required().messages({
     "string.empty": "Password is required",
-    "string.min": "Password must be at least 6 characters",
+    "string.min": "Password must be at least 3 characters",
   }),
 });
